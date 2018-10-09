@@ -1,0 +1,30 @@
+@import '~antd/dist/antd.css';
+
+.input {
+    width: 60vw;
+}
+
+.icon{
+    margin-top: 15vh;
+    border-radius: 70px;
+}
+
+.input-username {
+    margin-top: 15vh;
+}
+
+.input-password {
+    margin-top: 5vh;
+}
+
+.button-login{
+    margin-top: 8vh;
+    width: 50vw;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -19,7 +19,7 @@ ISDEBU ||
     };
   })();
 
-export class App extends PureComponent {
+export default class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>
@@ -31,12 +31,3 @@ export class App extends PureComponent {
 
 App.propTypes = {};
 App.defaultProps = {};
-
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
