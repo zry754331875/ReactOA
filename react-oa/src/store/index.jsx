@@ -1,11 +1,10 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 
 import { ConnectedRouter } from "connected-react-router";
 import { Provider } from "react-redux";
 import { store, history } from "./store";
-import router from "./router";
+import Router from "./router";
 
 const ISDEBU = true;
 ISDEBU ||
@@ -23,7 +22,9 @@ export default class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <ConnectedRouter history={history}>{router}</ConnectedRouter>
+        <ConnectedRouter history={history}>
+          <Router />
+        </ConnectedRouter>
       </Provider>
     );
   }

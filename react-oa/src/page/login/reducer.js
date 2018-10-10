@@ -5,7 +5,8 @@ import * as LOGIN_TYPE from "./contants";
 
 const defaultState = {
     isLoading: false,
-    user: null
+    user: null,
+    isAuth:false,
 }
 
 export default handleActions({
@@ -13,6 +14,7 @@ export default handleActions({
         return {
             ...state,
             isLoading: true,
+            isAuth:false,
         }
     },
     [LOGIN_TYPE.LOGIN_SUCCESS]: (state, action) => {
@@ -24,13 +26,15 @@ export default handleActions({
         return {
             ...state,
             isLoading: false,
-            user: json
+            user: json,
+            isAuth:true,
         }
     },
     [LOGIN_TYPE.LOGIN_ERROR]: (state) => {
         return {
             ...state,
             isLoading: false,
+            isAuth:false,
         }
     },
 }, defaultState)

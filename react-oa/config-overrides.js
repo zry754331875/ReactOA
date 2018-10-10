@@ -27,6 +27,7 @@ module.exports = function override(config, env) {
         '@page': srcDir + 'page',
         '@store': srcDir + 'store',
         '@utils': srcDir + 'utils',
+        '@compoment': srcDir + 'compoment'
     }
 
     return config;
