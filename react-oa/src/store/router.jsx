@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
-import Login from "../page/login/index";
-import Main from "../page/Main/index";
+import Login from "@page/login/index";
+import Main from "@page/Main/index";
 const rootRouter = (
     <div>
       <Switch>

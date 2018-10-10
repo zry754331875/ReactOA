@@ -3,19 +3,20 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { TabBar } from "antd-mobile";
 // import "antd-mobile/lib/tab-bar/style/css";
-import "./style.css"
+import "./style.css";
+import icon_work_normal from "@assets/icon_工作台_normal.png";
+import icon_work_press from "@assets/icon_工作台_press.png";
 
 export class Main extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: "redTab",
-      hidden: false,
-      fullScreen: false
+      selectedTab: "0",
+      hidden: false
     };
   }
 
-  renderContent(pageText) {
+  renderContent(index) {
     return (
       <div
         style={{
@@ -24,66 +25,29 @@ export class Main extends PureComponent {
           textAlign: "center"
         }}
       >
-        <div style={{ paddingTop: 60 }}>
-          Clicked “{pageText}” tab， show “{pageText}” information
-        </div>
-        <a
-          style={{
-            display: "block",
-            marginTop: 40,
-            marginBottom: 20,
-            color: "#108ee9"
-          }}
-          onClick={e => {
-            e.preventDefault();
-            this.setState({
-              hidden: !this.state.hidden
-            });
-          }}
-        >
-          Click to show/hide tab-bar
-        </a>
-        <a
-          style={{ display: "block", marginBottom: 600, color: "#108ee9" }}
-          onClick={e => {
-            e.preventDefault();
-            this.setState({
-              fullScreen: !this.state.fullScreen
-            });
-          }}
-        >
-          Click to switch fullscreen
-        </a>
+
       </div>
     );
   }
 
   render() {
     return (
-      <div
-        style={
-          this.state.fullScreen
-            ? { position: "fixed", height: "100%", width: "100%", top: 0 }
-            : { height: 400 }
-        }
-      >
+      <div style={{ position: "fixed", height: "100%", width: "100%", top: 0 }}>
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
           barTintColor="white"
           hidden={this.state.hidden}
-          tabBarPosition="top"
         >
           <TabBar.Item
-            title="Life"
-            key="Life"
+            title="工作台"
+            key="0"
             icon={
               <div
                 style={{
                   width: "22px",
                   height: "22px",
-                  background:
-                    "url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat"
+                  background: `url(${icon_work_normal}) center center /  21px 21px no-repeat`
                 }}
               />
             }
@@ -92,21 +56,19 @@ export class Main extends PureComponent {
                 style={{
                   width: "22px",
                   height: "22px",
-                  background:
-                    "url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat"
+                  background: `url(${icon_work_press}) center center /  21px 21px no-repeat`
                 }}
               />
             }
-            selected={this.state.selectedTab === "blueTab"}
-            badge={1}
+            selected={this.state.selectedTab === "0"}
             onPress={() => {
               this.setState({
-                selectedTab: "blueTab"
+                selectedTab: "0"
               });
             }}
             data-seed="logId"
           >
-            {this.renderContent("Life")}
+            {this.renderContent(0)}
           </TabBar.Item>
           <TabBar.Item
             icon={
@@ -129,18 +91,17 @@ export class Main extends PureComponent {
                 }}
               />
             }
-            title="Koubei"
-            key="Koubei"
-            badge={"new"}
-            selected={this.state.selectedTab === "redTab"}
+            title="通讯录"
+            key="1"
+            selected={this.state.selectedTab === "1"}
             onPress={() => {
               this.setState({
-                selectedTab: "redTab"
+                selectedTab: "1"
               });
             }}
             data-seed="logId1"
           >
-            {this.renderContent("Koubei")}
+            {this.renderContent(1)}
           </TabBar.Item>
           <TabBar.Item
             icon={
@@ -163,37 +124,16 @@ export class Main extends PureComponent {
                 }}
               />
             }
-            title="Friend"
-            key="Friend"
-            dot
-            selected={this.state.selectedTab === "greenTab"}
+            title="我的"
+            key="2"
+            selected={this.state.selectedTab === "2"}
             onPress={() => {
               this.setState({
-                selectedTab: "greenTab"
+                selectedTab: "2"
               });
             }}
           >
-            {this.renderContent("Friend")}
-          </TabBar.Item>
-          <TabBar.Item
-            icon={{
-              uri:
-                "https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
-            }}
-            selectedIcon={{
-              uri:
-                "https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg"
-            }}
-            title="My"
-            key="my"
-            selected={this.state.selectedTab === "yellowTab"}
-            onPress={() => {
-              this.setState({
-                selectedTab: "yellowTab"
-              });
-            }}
-          >
-            {this.renderContent("My")}
+            {this.renderContent(2)}
           </TabBar.Item>
         </TabBar>
       </div>

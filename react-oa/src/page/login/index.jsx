@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Input, Icon, Button, Spin } from "antd";
 import "./style.css";
-import icon from "../../assets/120.png";
+import icon from "@assets/120.png";
 import { createAction } from "redux-actions";
 import * as LOGIN_TYPE from "./contants";
 
