@@ -1,10 +1,9 @@
-@import '~antd/dist/antd.css';
 
 .input {
     width: 60vw;
 }
 
-.icon{
+.icon {
     margin-top: 15vh;
     border-radius: 70px;
 }
@@ -13,11 +12,17 @@
     margin-top: 15vh;
 }
 
+.spin {
+    position: absolute;
+    top: 48vh;
+    z-index: 1;
+}
+
 .input-password {
     margin-top: 5vh;
 }
 
-.button-login{
+.button-login {
     margin-top: 8vh;
     width: 50vw;
 }
