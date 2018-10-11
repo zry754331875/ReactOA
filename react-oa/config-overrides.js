@@ -1,7 +1,7 @@
 const path = require('path')
 const rootDir = path.resolve(__dirname) + '/'
 const srcDir = rootDir + 'src/'
-
+const rewireReactHotLoader = require('react-app-rewire-hot-loader')
 const {
     injectBabelPlugin
 } = require('react-app-rewired');
@@ -30,5 +30,7 @@ module.exports = function override(config, env) {
         '@compoment': srcDir + 'compoment'
     }
 
+    config = rewireReactHotLoader(config,env)
+    
     return config;
 };

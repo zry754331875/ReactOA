@@ -5,13 +5,22 @@ import createSagaMiddleware from "redux-saga";
 
 import rootReducers from "./reducer";
 import rootSaga from "./saga";
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-export const history = createBrowserHistory()
+const persistConfig = {
+  key: 'root',
+  storage,
+}
 
 const sagaMiddleware = createSagaMiddleware()
 
+const persistedReducer = persistReducer(persistConfig, rootReducers)
+
+export const history = createBrowserHistory()
+
 export const store = createStore(
-  connectRouter(history)(rootReducers), // new root reducer with router state
+  connectRouter(history)(persistedReducer), // new root reducer with router state
   compose(
     applyMiddleware(
       routerMiddleware(history), // for dispatching history actions
@@ -19,5 +28,7 @@ export const store = createStore(
     ),
   ),
 )
+
+export const persistor = persistStore(store)
 
 sagaMiddleware.run(rootSaga)

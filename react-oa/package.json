@@ -17,6 +17,7 @@
     "react-scripts": "2.0.4",
     "redux": "^4.0.0",
     "redux-actions": "^2.4.0",
+    "redux-persist": "^5.10.0",
     "redux-saga": "^0.16.0"
   },
   "scripts": {
@@ -32,5 +33,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-app-rewire-hot-loader": "^1.0.3",
+    "react-hot-loader": "^4.3.11"
+  }
 }

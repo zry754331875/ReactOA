@@ -1,7 +1,7 @@
 import {
     put,
     call,
-    takeEvery
+    takeEvery,
 } from "redux-saga/effects";
 import * as LOGIN_TYPES from "./contants";
 import {
@@ -19,7 +19,7 @@ function* login(action) {
             username,
             password
         } = action.payload
-
+        
         let response = yield call(fetch, `/ygoa/ydpt/loginYdpt.action?userName=${username}&password=${md5(password)}`, {
             method: 'GET',
             headers: {
@@ -33,6 +33,9 @@ function* login(action) {
         if (json.success == 0) {
             yield put(createAction(LOGIN_TYPES.LOGIN_SUCCESS)(json))
             yield put(push("/Main"))
+        }
+        else{
+            yield put(createAction(LOGIN_TYPES.LOGIN_ERROR)())
         }
     } catch (error) {
         yield put(createAction(LOGIN_TYPES.LOGIN_ERROR)(error))

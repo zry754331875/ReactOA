@@ -6,6 +6,7 @@ import { TabBar } from "antd-mobile";
 import "./style.css";
 import icon_work_normal from "@assets/icon_工作台_normal.png";
 import icon_work_press from "@assets/icon_工作台_press.png";
+import { createAction } from "redux-actions";
 
 export class Main extends PureComponent {
   constructor(props) {
@@ -16,6 +17,7 @@ export class Main extends PureComponent {
     };
   }
 
+  
   renderContent(index) {
     return (
       <div
@@ -25,7 +27,7 @@ export class Main extends PureComponent {
           textAlign: "center"
         }}
       >
-
+        
       </div>
     );
   }
@@ -146,7 +148,9 @@ Main.defaultProps = {};
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  
+});
 
 export default connect(
   mapStateToProps,
