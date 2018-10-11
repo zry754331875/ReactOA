@@ -1,7 +1,7 @@
-##ReactOA是什么?
+#ReactOA是什么?
 专业化的react 项目模板
 
-##ReactOA设计到哪些方面？
+#ReactOA设计到哪些方面？
 
 * react全家桶的使用
     * [react](https://github.com/facebook/react) 
@@ -21,12 +21,12 @@
 * state 范式化
 * 支持 Code Splitting 
 
-##后期
+#后期
 * 复杂业务融入
 * 集成immutable
 * 基于 Dva 的 SSR
 
-##有问题反馈
+#有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
 * 邮箱: 754331875@qq.com
