@@ -2,8 +2,8 @@ ReactOA是什么?
 =
 专业化的react 项目模板
 
-#ReactOA设计到哪些方面？
-
+ReactOA设计到哪些方面？
+=
 * react全家桶的使用
     * [react](https://github.com/facebook/react) 
     * [create-react-app](https://github.com/facebook/create-react-app) 快速搭建react项目的脚手架，最近发布了v2版本，支持了webpack v4
@@ -21,13 +21,16 @@ ReactOA是什么?
 * 高度定制的webpack
 * state 范式化
 * 支持 Code Splitting 
+* flex布局，更加适合移动端
 
-#后期
+后期
+=
 * 复杂业务融入
 * 集成immutable
 * 基于 Dva 的 SSR
 
-#有问题反馈
+有问题反馈
+=
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
 * 邮箱: 754331875@qq.com
