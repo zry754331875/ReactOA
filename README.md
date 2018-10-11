@@ -1,7 +1,3 @@
-ReactOA是什么?
-=
-专业化的react 项目模板
-
 ReactOA设计到哪些方面？
 =
 * react全家桶的使用
