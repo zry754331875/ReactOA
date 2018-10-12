@@ -7,18 +7,6 @@ import { store, history, persistor } from "./store";
 import Router from "./router";
 import { PersistGate } from "redux-persist/integration/react";
 
-const ISDEBU = true;
-ISDEBU ||
-  (() => {
-    window.console = {
-      info: () => {},
-      log: () => {},
-      warn: () => {},
-      debug: () => {},
-      error: () => {}
-    };
-  })();
-
 export default class App extends PureComponent {
   render() {
     return (

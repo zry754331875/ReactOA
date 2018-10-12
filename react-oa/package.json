@@ -36,6 +36,7 @@
   ],
   "devDependencies": {
     "react-app-rewire-hot-loader": "^1.0.3",
-    "react-hot-loader": "^4.3.11"
+    "react-hot-loader": "^4.3.11",
+    "uglifyjs-webpack-plugin": "^2.0.1"
   }
 }

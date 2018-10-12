@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+        "@src/*": ["src/*"],
+        "@assets/*": ["src/assets/*"],
+        "@page/*": ["src/page/*"],
+        "@store/*": ["src/store/*"],
+        "@utils/*": ["src/utils/*"],
+        "@component/*": ["src/component/*"]
+      }
+    },
+}

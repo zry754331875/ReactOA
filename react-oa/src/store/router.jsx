@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import Login from "@page/login/index";
 import Main from "@page/Main/index";
-import AuthRoute from "@compoment/AuthRoute";
+import AuthRoute from "@component/AuthRoute";
 import React, { PureComponent } from "react";
 
 

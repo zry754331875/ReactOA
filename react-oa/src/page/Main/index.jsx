@@ -7,6 +7,7 @@ import "./style.css";
 import icon_work_normal from "@assets/icon_工作台_normal.png";
 import icon_work_press from "@assets/icon_工作台_press.png";
 import { createAction } from "redux-actions";
+import Work from "@page/Work/index";
 
 export class Main extends PureComponent {
   constructor(props) {
@@ -19,17 +20,19 @@ export class Main extends PureComponent {
 
   
   renderContent(index) {
-    return (
-      <div
-        style={{
-          backgroundColor: "white",
-          height: "100%",
-          textAlign: "center"
-        }}
-      >
-        
-      </div>
-    );
+    let component = (<div></div>)
+
+    if (index == 0) {
+      component = (<Work></Work>)
+    }
+    else if(index == 1){
+
+    }
+    else if(index == 2){
+
+    }
+
+    return component;
   }
 
   render() {

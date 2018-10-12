@@ -1,7 +1,10 @@
 const path = require('path')
+const webpack = require('webpack')
 const rootDir = path.resolve(__dirname) + '/'
 const srcDir = rootDir + 'src/'
 const rewireReactHotLoader = require('react-app-rewire-hot-loader')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+
 const {
     injectBabelPlugin
 } = require('react-app-rewired');
@@ -19,7 +22,7 @@ module.exports = function override(config, env) {
     config = injectBabelPlugin(['import', {
         libraryName: 'antd-mobile',
         style: 'css'
-    },'antd-mobile'], config);
+    }, 'antd-mobile'], config);
 
     config.resolve.alias = {
         '@src': srcDir,
@@ -27,10 +30,18 @@ module.exports = function override(config, env) {
         '@page': srcDir + 'page',
         '@store': srcDir + 'store',
         '@utils': srcDir + 'utils',
-        '@compoment': srcDir + 'compoment'
+        '@component': srcDir + 'component'
     }
 
-    config = rewireReactHotLoader(config,env)
-    
+    config = rewireReactHotLoader(config, env)
+
+    config.optimization.minimizer = [new UglifyJSPlugin({
+      uglifyOptions: {
+        compress: {
+          drop_console: true,
+        }
+      }
+    })]
+
     return config;
 };
