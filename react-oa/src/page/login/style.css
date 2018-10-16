@@ -13,7 +13,7 @@
 }
 
 .spin {
-    position: absolute;
+    position: fixed;
     top: 48vh;
     z-index: 1;
 }

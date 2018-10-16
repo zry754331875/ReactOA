@@ -15,8 +15,6 @@ export default function *saga(){
 
 function *click(action){
 
-    const state = yield select()
-    console.log(state)
     console.log(action)
 }
 

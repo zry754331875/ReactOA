@@ -1,4 +1,4 @@
-const getFetch = async (url, params = {},successCallback,failureCallback) => {
+export const getFetch = async (url, params = {},successCallback,failureCallback) => {
 
     try {
         let newUrl = `${url}?`
@@ -14,10 +14,10 @@ const getFetch = async (url, params = {},successCallback,failureCallback) => {
 
         let json = await response.json()
 
-        successCallback(json)
+        return json
 
     } catch (error) {
-        failureCallback(error)
+        throw error
     }
 
 }
