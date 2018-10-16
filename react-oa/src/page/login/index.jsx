@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Input, Icon, Button, Spin } from "antd";
+import { Toast } from 'antd-mobile';
 import "./style.css";
 import icon from "@assets/120.png";
 import { createAction } from "redux-actions";
@@ -15,9 +16,13 @@ export class Login extends PureComponent {
   };
 
   render() {
+
+    const {isLoading,error} = this.props
+
     return (
       <div className="container">
-        {this.props.isLoading ? <Spin className="spin" size="large" /> : null}
+        {isLoading ? <Spin className="spin" size="large" /> : null}
+        {error ? Toast.fail(`${error.msg}`, 1) : null}
         <img className="icon" src={icon} alt="icon" />
         <Input
           ref={r => (this.usernameInput = r)}
@@ -44,7 +49,8 @@ Login.propTypes = {};
 Login.defaultProps = {};
 
 const mapStateToProps = state => ({
-  isLoading: state.login.isLoading
+  isLoading: state.login.isLoading,
+  error: state.login.error
 });
 
 const mapDispatchToProps = dispatch => ({

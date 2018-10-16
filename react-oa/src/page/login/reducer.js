@@ -7,6 +7,7 @@ const defaultState = {
     isLoading: false,
     user: null,
     isAuth:false,
+    error:null,
 }
 
 export default handleActions({
@@ -15,6 +16,7 @@ export default handleActions({
             ...state,
             isLoading: true,
             isAuth:false,
+            error:null,
         }
     },
     [LOGIN_TYPE.LOGIN_SUCCESS]: (state, action) => {
@@ -30,11 +32,15 @@ export default handleActions({
             isAuth:true,
         }
     },
-    [LOGIN_TYPE.LOGIN_ERROR]: (state) => {
+    [LOGIN_TYPE.LOGIN_ERROR]: (state,action) => {
+
+        let error = action.payload
+
         return {
             ...state,
             isLoading: false,
             isAuth:false,
+            error:error,
         }
     },
 }, defaultState)

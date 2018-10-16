@@ -11,7 +11,9 @@ import md5 from "md5";
 import {
     push
 } from 'connected-react-router'
-import { getFetch } from "@utils/fetch";
+import {
+    getFetch
+} from "@utils/fetch";
 
 function* login(action) {
 
@@ -20,21 +22,23 @@ function* login(action) {
             username,
             password
         } = action.payload
-        
-        let json = yield call(getFetch, '/ygoa/ydpt/loginYdpt.action', {userName:username,password:md5(password)})
+
+        let json = yield call(getFetch, '/ygoa/ydpt/loginYdpt.action', {
+            userName: username,
+            password: md5(password)
+        })
 
         console.log(json)
-        
+
         if (json.success == 0) {
             yield put(createAction(LOGIN_TYPES.LOGIN_SUCCESS)(json))
             yield put(push("/Main"))
-        }
-        else{
-            
-            yield put(createAction(LOGIN_TYPES.LOGIN_ERROR)())
+        } else {
+
+            yield put(createAction(LOGIN_TYPES.LOGIN_ERROR)({status:json.success,msg:json.msg}))
         }
     } catch (error) {
-        yield put(createAction(LOGIN_TYPES.LOGIN_ERROR)(error))
+        yield put(createAction(LOGIN_TYPES.LOGIN_ERROR)({status:error.response.status,msg:'出现失败'}))
     }
 }
 

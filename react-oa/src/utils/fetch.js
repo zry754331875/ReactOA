@@ -1,18 +1,17 @@
-export const getFetch = async (url, params = {},successCallback,failureCallback) => {
+import axios from "axios";
+
+const networkTool = axios.create({
+    // baseURL: 'http://ygoa.yong-gang.cn',
+    timeout: 8000,
+});
+
+export const getFetch = async (url, params = {}, successCallback, failureCallback) => {
 
     try {
-        let newUrl = `${url}?`
 
-        Object.keys(params).map((key) => {
-            newUrl = `${newUrl}${key}=${params[key]}&`
-        })
+        let response = await networkTool.get(url, {params})
 
-        let response = await fetch(newUrl, {
-            method: "GET",
-            credentials: "include"
-        })
-
-        let json = await response.json()
+        let json = await response.data
 
         return json
 
