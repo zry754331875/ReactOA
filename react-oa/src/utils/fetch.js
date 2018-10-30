@@ -5,7 +5,7 @@ const networkTool = axios.create({
     timeout: 8000,
 });
 
-export const getFetch = async (url, params = {}, successCallback, failureCallback) => {
+export const getFetch = async (url, params = {}) => {
 
     try {
 
@@ -18,5 +18,19 @@ export const getFetch = async (url, params = {}, successCallback, failureCallbac
     } catch (error) {
         throw error
     }
+}
 
+export const postFetch = async (url, params = {}) => {
+
+    try {
+
+        let response = await networkTool.post(url, {params,headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+
+        let json = await response.data
+
+        return json
+
+    } catch (error) {
+        throw error
+    }
 }
