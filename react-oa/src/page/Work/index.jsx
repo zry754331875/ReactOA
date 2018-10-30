@@ -10,14 +10,18 @@ import * as WORK_TYPES from "./contants";
 const Item = List.Item;
 const Brief = Item.Brief;
 
-export class Work extends PureComponent {
-  state = {
-    disabled: false
-  };
+const ListItem = ({ style,title, imageUrl='' }) => {
+  return (
+    <div style={{ display: "flex", flexDirection: "column",'alignItems':'center',...style}}>
+      <img  src={imageUrl} alt={imageUrl} />
+      <span>{title}</span>
+    </div>
+  );
+};
 
-  componentDidMount() {
-    this.props.getHomeList(0);
-  }
+export class Work extends PureComponent {
+  
+  componentDidMount() {}
 
   render() {
     return (
@@ -27,26 +31,12 @@ export class Work extends PureComponent {
           leftContent={<Icon type="left" />}
           rightContent={<Icon key="1" type="ellipsis" />}
         >
-          首页
+          工作台
         </NavBar>
-        <List renderHeader={() => "Subtitle"} className="my-list">
-          <Item
-            arrow="horizontal"
-            multipleLine
-            onClick={() => {}}
-            platform="android"
-          >
-            ListItem （Android）
-          </Item>
-          <Item
-            arrow="horizontal"
-            thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-            multipleLine
-            onClick={() => {}}
-          >
-            Title <Brief>subtitle</Brief>
-          </Item>
-        </List>
+        <div className="container">
+          <ListItem title='工作台1' imageUrl={require('@assets/120.png')}></ListItem>
+          
+        </div>
       </div>
     );
   }
@@ -58,8 +48,10 @@ Work.defaultProps = {};
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-  getHomeList: (pageIndex) => {
-    dispatch(createAction(WORK_TYPES.FETCH_HOME_LIST_START)({pageIndex:pageIndex}));
+  getHomeList: pageIndex => {
+    dispatch(
+      createAction(WORK_TYPES.FETCH_HOME_LIST_START)()
+    );
   }
 });
 
