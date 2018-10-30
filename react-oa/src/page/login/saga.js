@@ -44,4 +44,5 @@ function* login(action) {
 
 export default function* rootSaga() {
     yield takeEvery(LOGIN_TYPES.LOGIN_START, login)
+    yield takeEvery('*',(action)=>console.log(action))
 }

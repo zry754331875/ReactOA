@@ -36,12 +36,12 @@ module.exports = function override(config, env) {
     config = rewireReactHotLoader(config, env)
 
     config.optimization.minimizer = [new UglifyJSPlugin({
-      uglifyOptions: {
-        compress: {
-          drop_console: true,
+        uglifyOptions: {
+            compress: {
+                drop_console: true,
+            }
         }
-      }
     })]
-    
+
     return config;
 };

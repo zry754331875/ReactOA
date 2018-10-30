@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Input, Icon, Button, Spin } from "antd";
 import { Toast } from 'antd-mobile';
 import "./style.css";
-import icon from "@assets/120.png";
 import { createAction } from "redux-actions";
 import * as LOGIN_TYPE from "./contants";
 
@@ -23,7 +22,7 @@ export class Login extends PureComponent {
       <div className="container">
         {isLoading ? <Spin className="spin" size="large" /> : null}
         {error ? Toast.fail(`${error.msg}`, 1) : null}
-        <img className="icon" src={icon} alt="icon" />
+        <img className="icon" src={require('@assets/120.png')} alt="icon" />
         <Input
           ref={r => (this.usernameInput = r)}
           className="input input-username"

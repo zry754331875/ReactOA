@@ -2,6 +2,7 @@
   "name": "react-oa",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "antd": "^3.10.0",
     "antd-mobile": "^2.2.5",
@@ -9,6 +10,7 @@
     "babel-plugin-import": "^1.9.1",
     "connected-react-router": "^4.3.0",
     "http-proxy-middleware": "^0.19.0",
+    "jsqr": "^1.1.1",
     "md5": "^2.2.1",
     "react": "^16.5.2",
     "react-app-rewired": "^1.6.2",
@@ -36,6 +38,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "file-loader": "^2.0.0",
     "react-app-rewire-hot-loader": "^1.0.3",
     "react-hot-loader": "^4.3.11",
     "uglifyjs-webpack-plugin": "^2.0.1"
