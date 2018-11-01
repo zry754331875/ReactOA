@@ -10,33 +10,45 @@ import * as WORK_TYPES from "./contants";
 const Item = List.Item;
 const Brief = Item.Brief;
 
-const ListItem = ({ style,title, imageUrl='' }) => {
+const ListItem = ({ style, title, imageUrl = "" }) => {
   return (
-    <div style={{ display: "flex", flexDirection: "column",'alignItems':'center',...style}}>
-      <img  src={imageUrl} alt={imageUrl} />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems:'center',
+        ...style
+      }}
+    >
+      <img style={{width:'50%',height:'50%'}} src={imageUrl} alt={imageUrl} />
       <span>{title}</span>
     </div>
   );
 };
 
 export class Work extends PureComponent {
-  
   componentDidMount() {}
 
   render() {
+    let listItems = [];
+
+    for (let i = 0; i < 15; i++) {
+      listItems.push(
+        <ListItem key={`${i}`} style={{width:'28vw'}} title={`工作台${i}`} imageUrl={require(`@assets/work_${i}.png`)} />
+      );
+    }
+
     return (
       <div>
         <NavBar
+          
           mode="dark"
           leftContent={<Icon type="left" />}
           rightContent={<Icon key="1" type="ellipsis" />}
         >
           工作台
         </NavBar>
-        <div className="container">
-          <ListItem title='工作台1' imageUrl={require('@assets/120.png')}></ListItem>
-          
-        </div>
+        <div className="container">{listItems}</div>
       </div>
     );
   }
@@ -49,9 +61,7 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
   getHomeList: pageIndex => {
-    dispatch(
-      createAction(WORK_TYPES.FETCH_HOME_LIST_START)()
-    );
+    dispatch(createAction(WORK_TYPES.FETCH_HOME_LIST_START)());
   }
 });
 
