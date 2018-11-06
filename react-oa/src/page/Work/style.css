@@ -8,6 +8,11 @@
   justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 10px;
   width: 100%;
   height: 100%;
+}
+
+.out-container::-webkit-scrollbar{
+  display: none;
 }

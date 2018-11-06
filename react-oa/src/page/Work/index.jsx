@@ -10,7 +10,7 @@ import * as WORK_TYPES from "./contants";
 const Item = List.Item;
 const Brief = Item.Brief;
 
-const ListItem = ({ style, title, imageUrl = "" }) => {
+const ListItem = ({ style, title, imageUrl = "",onClick }) => {
   return (
     <div
       style={{
@@ -19,6 +19,7 @@ const ListItem = ({ style, title, imageUrl = "" }) => {
         alignItems:'center',
         ...style
       }}
+      onClick={onClick}
     >
       <img style={{width:'50%',height:'50%'}} src={imageUrl} alt={imageUrl} />
       <span>{title}</span>
@@ -31,24 +32,28 @@ export class Work extends PureComponent {
 
   render() {
     let listItems = [];
-
+    
     for (let i = 0; i < 15; i++) {
       listItems.push(
-        <ListItem key={`${i}`} style={{width:'28vw'}} title={`工作台${i}`} imageUrl={require(`@assets/work_${i}.png`)} />
+        <ListItem key={`${i}`} style={{width:'25%'}} title={`工作台${i}`} imageUrl={require(`@assets/work_${i}.png`)}/>
       );
     }
 
     return (
-      <div>
+      <div className='out-container' >
         <NavBar
-          
+          style={{position:'fixed',width:'100%',top: '0',}}
           mode="dark"
           leftContent={<Icon type="left" />}
           rightContent={<Icon key="1" type="ellipsis" />}
         >
           工作台
         </NavBar>
+        <div className="container" style={{marginTop:'45px'}}>{listItems}</div>
         <div className="container">{listItems}</div>
+        <div className="container">{listItems}</div>
+        <div className="container">{listItems}</div>
+        
       </div>
     );
   }
