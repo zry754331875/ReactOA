@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getFetch } from "@utils/fetch";
 import { NavBar, Icon, List } from "antd-mobile";
-import "./style.css";
+import styles from "./style.module.css";
 import { createAction } from "redux-actions";
 import * as WORK_TYPES from "./contants";
 
@@ -40,7 +40,7 @@ export class Work extends PureComponent {
     }
 
     return (
-      <div className='out-container' >
+      <div className={styles.out_container} >
         <NavBar
           style={{position:'fixed',width:'100%',top: '0',}}
           mode="dark"
@@ -49,10 +49,10 @@ export class Work extends PureComponent {
         >
           工作台
         </NavBar>
-        <div className="container" style={{marginTop:'45px'}}>{listItems}</div>
-        <div className="container">{listItems}</div>
-        <div className="container">{listItems}</div>
-        <div className="container">{listItems}</div>
+        <div className={styles.container} style={{marginTop:'45px'}}>{listItems}</div>
+        <div className={styles.container}>{listItems}</div>
+        <div className={styles.container}>{listItems}</div>
+        <div className={styles.container}>{listItems}</div>
         
       </div>
     );

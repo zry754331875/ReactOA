@@ -8,7 +8,7 @@
     border-radius: 70px;
 }
 
-.input-username {
+.input_username {
     margin-top: 15vh;
 }
 
@@ -18,11 +18,11 @@
     z-index: 1;
 }
 
-.input-password {
+.input_password {
     margin-top: 5vh;
 }
 
-.button-login {
+.button_login {
     margin-top: 8vh;
     width: 50vw;
 }
