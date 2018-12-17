@@ -8,6 +8,7 @@ import icon_work_normal from "@assets/icon_工作台_normal.png";
 import icon_work_press from "@assets/icon_工作台_press.png";
 import { createAction } from "redux-actions";
 import Work from "@page/Work/index";
+import Contact from "@page/Contact/index";
 
 export class Main extends PureComponent {
   constructor(props) {
@@ -26,7 +27,7 @@ export class Main extends PureComponent {
       component = (<Work></Work>)
     }
     else if(index == 1){
-
+      component = (<Contact></Contact>)
     }
     else if(index == 2){
 
@@ -36,8 +37,10 @@ export class Main extends PureComponent {
   }
 
   render() {
+    
     return (
       <div style={{ position: "fixed", height: "100%", width: "100%", top: 0 }}>
+      
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#33A3F4"

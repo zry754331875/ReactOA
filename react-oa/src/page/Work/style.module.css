@@ -10,6 +10,10 @@
   height: 100%;
 }
 
+.out_container>.container:nth-child(2){
+  margin-top: 45px;
+}
+
 .out_container::-webkit-scrollbar{
   display: none;
 }

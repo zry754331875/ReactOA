@@ -1,0 +1,41 @@
+
+.middle {
+    background-color: black;
+    width: 100%;
+    padding-left: -100%;
+}
+
+.left {
+    background-color: red;
+    width: 100px;
+    margin-left: -100%;
+    position: relative;
+}
+
+.right {
+    background-color: yellow;
+    width: 100px;
+}
+
+#left {
+    background-color: #f00;
+    float: left;
+    width: 100px;
+    height: 500px;
+}
+#right {
+    background-color: #0f0;
+    height: 500px;
+    margin-left: 100px; /*设置间隔，大于等于#left的宽度*/
+}
+
+.content{
+    width: 100px;
+    height: 100px;
+    border: 10px solid yellow;
+    padding: 20px;
+    transform: translate(90vw,100px);
+    position: absolute;
+    background-color: red;
+    /* box-sizing: content-box; */
+}

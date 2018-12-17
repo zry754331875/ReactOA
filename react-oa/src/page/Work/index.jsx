@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getFetch } from "@utils/fetch";
 import { NavBar, Icon, List } from "antd-mobile";
 import styles from "./style.module.css";
+// import './style.css';
 import { createAction } from "redux-actions";
 import * as WORK_TYPES from "./contants";
 
@@ -38,18 +39,19 @@ export class Work extends PureComponent {
         <ListItem key={`${i}`} style={{width:'25%'}} title={`工作台${i}`} imageUrl={require(`@assets/work_${i}.png`)}/>
       );
     }
-
+    
     return (
       <div className={styles.out_container} >
         <NavBar
-          style={{position:'fixed',width:'100%',top: '0',}}
+          style={{width:'100%',top: '0',}}
           mode="dark"
           leftContent={<Icon type="left" />}
           rightContent={<Icon key="1" type="ellipsis" />}
         >
           工作台
         </NavBar>
-        <div className={styles.container} style={{marginTop:'45px'}}>{listItems}</div>
+        
+        <div className={styles.container}>{listItems}</div>
         <div className={styles.container}>{listItems}</div>
         <div className={styles.container}>{listItems}</div>
         <div className={styles.container}>{listItems}</div>
